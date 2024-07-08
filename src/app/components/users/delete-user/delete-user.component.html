@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Delete User</h1>
+<div mat-dialog-content>
+  <p>Are you sure you want to delete the user?</p>
+</div>
+<mat-dialog-actions>
+  <div class="actions">
+    <button
+      type="button"
+      [mat-dialog-close]="true"
+      class="btn btn-danger mx-2"
+      (click)="yesBtnClick()"
+    >
+      Yes
+    </button>
+    <button
+      type="button"
+      mat-dialog-close
+      class="btn btn-secondary ms-1"
+      (click)="noBtnClick()"
+    >
+      No
+    </button>
+  </div></mat-dialog-actions
+>

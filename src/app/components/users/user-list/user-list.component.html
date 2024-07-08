@@ -1,0 +1,52 @@
+<div class="container" *ngIf="!spinnerShown">
+  <div class="table-container">
+    <p-table
+      [value]="users"
+      [paginator]="true"
+      [rows]="5"
+      [rowsPerPageOptions]="[5, 10]"
+      [scrollable]="true"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th scope="col" class="text-center">Sr.No</th>
+          <th scope="col" class="text-center">Name</th>
+          <th scope="col" class="text-center">Username</th>
+          <th scope="col" class="text-center">Email</th>
+          <th scope="col" class="text-center">Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user let-rowIndex="rowIndex">
+        <tr>
+          <th scope="row" class="text-center">{{ rowIndex + 1 }}</th>
+          <td class="text-center">{{ user.name }}</td>
+          <td class="text-center">{{ user.username }}</td>
+          <td class="text-center">{{ user.email | lowercase }}</td>
+          <td class="text-center">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="updateBtnClick(rowIndex)"
+            >
+              <span>Edit</span>
+              <mat-icon fontIcon="edit" class="hidden-icon"></mat-icon>
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-danger ms-2"
+              (click)="deleteBtnClick(rowIndex)"
+            >
+              <span>Delete</span>
+              <mat-icon fontIcon="delete" class="hidden-icon"></mat-icon>
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="5"><h1>No Data</h1></td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
